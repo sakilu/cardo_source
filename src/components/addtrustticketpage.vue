@@ -39,9 +39,18 @@
       </li>
       <li class="nav-item">
         <a
+          class="nav-link text-primary trustInfo"
+          :class="{'active' : tab == '商品信託資訊'}"
+          @click="tab = '商品信託資訊'"
+          data-toggle="tab"
+          href="#profile"
+        >商品信託資訊</a>
+      </li>
+      <li class="nav-item">
+        <a
           class="nav-link text-primary returnNotice"
-          :class="{'active' : tab == '退貨'}"
-          @click="tab = '退貨'"
+          :class="{'active' : tab == '退貨注意事項'}"
+          @click="tab = '退貨注意事項'"
           data-toggle="tab"
           href="#profile"
         >退貨注意事項</a>
@@ -199,7 +208,7 @@
               >
             </div>
             <div class="mb-40">
-              <p class="d-flex flex-wrap align-items-center tabSubTitle  mb-2">
+              <p class="d-flex  flex-wrap align-items-center tabSubTitle  mb-2">
                 <span class="text-danger star">*</span>
                 <span class="text-primary font-weight-bold mr-0">新增商品介紹（商品介紹或注意事項）</span>
                 <span class="fzProductName">建議不超過五張圖 寬度 860 px</span>
@@ -230,23 +239,24 @@
             <!-- <hr class="mb-40"> -->
             <!-- 活動開始日期 -->
             <!-- 新增商品活動資訊 -->
-            <h4 class="font-weight-bold w-100 border-bottom pb-3 mb-30">新增商品活動資訊</h4>
+            <h4 class="font-weight-bold w-100 border-bottom pb-3 mb-30">新增商品地址</h4>
             <div class="mb-3">
               <p class="d-flex align-items-center tabSubTitle  mb-2">
-                <span class="text-danger star">*</span>
                 <label
-                  class="text-primary font-weight-bold mr-3"
-                  for="startDate"
-                >商品活動起始日</label>
-                <span class="fzProductName">活動開始的日期</span>
+                  class="text-page font-weight-bold mr-3"
+                  for="franchiseShow"
+                >前端顯示「查看分店」按鈕</label>
               </p>
               <div class="">
-                <input
-                  type="date"
+                <select
+                  name="franchiseShow"
+                  id="franchiseShow"
                   class="form-control"
-                  id="startDate"
-                  required
+                  v-model="showFranchise"
                 >
+                  <option value="close">關閉</option>
+                  <option value="open">開啟</option>
+                </select>
               </div>
             </div>
             <!-- 活動結束日期 -->
@@ -254,54 +264,42 @@
               <p class="d-flex align-items-center tabSubTitle mb-2">
                 <span class="text-danger star">*</span>
                 <label
-                  class="text-primary font-weight-bold mr-3 mb-0"
-                  for="endDate"
-                >商品活動結束日</label>
-                <span class="fzProductName">活動結束的日期</span>
+                  class="text-page font-weight-bold mr-3 mb-0"
+                  for="inputURL"
+                >置入網址</label>
+                <span class="fzProductName">於前端點選「查看分店之後」，可連結至您的官網查看分店資訊。</span>
               </p>
               <div class="">
                 <input
-                  type="date"
+                  type="text"
                   class="form-control"
-                  id="endDate"
-                  required
+                  id="inputURL"
+                  v-if="showFranchise == 'open'"
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="inputURL"
+                  v-else
+                  disabled
                 >
               </div>
             </div>
             <!-- 商品活動地點 -->
             <div class="mb-3">
-              <p class="d-flex align-items-center tabSubTitle  mb-2">
+              <p class="d-flex flex-wrap align-items-center tabSubTitle  mb-2">
                 <span class="text-danger star">*</span>
                 <label
                   class="text-primary font-weight-bold mr-3 mb-0"
                   for="location"
-                >商品活動地點</label>
-                <span class="fzProductName">如：地名、地標</span>
+                >新增商品地址</label>
+                <span class="fzProductName">輸入該地址後，此商品將顯示於前端探索中的地圖。系統根據此地址在google map抓取經緯度 請正確填寫。</span>
               </p>
               <div class="">
                 <input
                   type="text"
                   class="form-control"
                   id="location"
-                  required
-                >
-              </div>
-            </div>
-            <!-- 商品活動地址 -->
-            <div class="mb-3">
-              <p class="d-flex align-items-center tabSubTitle  mb-2">
-                <span class="text-danger star">*</span>
-                <label
-                  class="text-primary font-weight-bold mr-3 mb-0"
-                  for="address"
-                >商品活動地址</label>
-                <span class="fzProductName">如：郵遞區號 某某縣某某區某某路某號</span>
-              </p>
-              <div class="">
-                <input
-                  type="text"
-                  class="form-control"
-                  id="address"
                   required
                 >
               </div>
@@ -482,15 +480,60 @@
               </div>
             </div>
           </div>
-
         </div>
       </div>
 
-      <!-- 退貨標籤 -->
+      <!-- 商品信託資訊 -->
       <div
         class="tab-pane fade px-30 pt-30"
-        :class="{'show active' : tab == '退貨'}"
-        id="profile"
+        :class="{'show active' : tab == '商品信託資訊'}"
+        id="trustInfo"
+        role="tabpanel"
+      >
+        <h4 class="font-weight-bold w-100 border-bottom pb-3 mb-3">商品信託資訊</h4>
+        <div class="mb-40">
+          <p class="d-flex  flex-wrap align-items-center tabSubTitle  mb-2">
+            <span class="text-danger star">*</span>
+            <span class="text-primary font-weight-bold mr-0">商品信託資訊（信託應記載條款）</span>
+          </p>
+          <div>
+            <img
+              src="../assets/img/plugin_img.png"
+              alt="plugin"
+              class=" w-50"
+            >
+          </div>
+          <div>
+            <button
+              type="button"
+              class="btn btn-log mt-3 text-center btn-size font-weight-bold mr-3"
+            >
+              <div class="d-flex justify-content-center align-items-center">
+                <img
+                  src="../assets/img/back_to_default.png"
+                  alt=""
+                  class="mr-3"
+                >
+                <span class="text-light">回預設值</span>
+              </div>
+            </button>
+          </div>
+        </div>
+        <p class="d-flex  flex-wrap align-items-center tabSubTitle  mb-2">
+          <span class="text-primary font-weight-bold mr-0">信託期間長度</span>
+        </p>
+        <input
+          type="text"
+          class="form-control w-50 mb-8"
+          placeholder="12個月"
+          disabled
+        >
+      </div>
+      <!-- 退貨注意事項 -->
+      <div
+        class="tab-pane fade px-30 pt-30"
+        :class="{'show active' : tab == '退貨注意事項'}"
+        id="returnNotice"
         role="tabpanel"
       >
         <h4 class="font-weight-bold w-100 border-bottom pb-3 mb-5">退貨注意事項</h4>
@@ -524,6 +567,7 @@
           </div>
         </p>
       </div>
+
     </div>
   </div>
 </template>
@@ -533,7 +577,8 @@
     data() {
       return {
         tab: "商品資訊",
-        showNumOrNot: "啟用"
+        showNumOrNot: "啟用",
+        showFranchise: "close"
       };
     },
     mounted() {
@@ -577,10 +622,18 @@
     .nav-link {
       &.prodInform {
         border-color: #dee2e6 #dee2e6 transparent;
-        border-width: 2px 0px 0px 2px;
+        border-width: 2px 2px 0px 2px;
         &:hover {
           border-color: #3b44a9 #3b44a9;
           border-width: 2px 2px 0px 2px;
+        }
+      }
+      &.trustInfo {
+        border-color: #dee2e6 #dee2e6 transparent;
+        border-width: 2px 2px 0px 0px;
+        &:hover {
+          border-color: #3b44a9 #3b44a9 #dee2e6;
+          border-width: 2px 2px 0px;
         }
       }
       &.returnNotice {
@@ -614,6 +667,9 @@
       width: 55%;
       // border-bottom: 2px solid #c9c9c9;
       box-sizing: border-box;
+      .star {
+        width: 20px;
+      }
       img[alt="upload"] {
         cursor: pointer;
       }
@@ -646,11 +702,11 @@
         width: 100%;
       }
     }
-    .star {
-      width: 20px;
-    }
     .tabSubTitle {
       font-size: 20px;
+    }
+    .star {
+      width: 20px;
     }
     // 發行價格與數量
     .priceNum {

@@ -3,11 +3,12 @@
     <p class="userEmail mb-0">
       {{userEmail}}
     </p>
-    <a
+    <router-link
       class="btn btn-log logOut text-center logOutBox"
       href="#"
       role="button"
-    >Log Out</a>
+      to="/"
+    >Log Out</router-link>
   </div>
 </template>
 

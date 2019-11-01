@@ -11,18 +11,15 @@
       <li
         class="d-flex flex-column align-items-center justify-content-center"
         :class="{'bg-secondary':functionIcon == 'product'}"
-        @click="emitShowDetail"
+        @click="emitShowDetail('product')"
       >
-        <img
-          src="../assets/img/icons8-boarding-pass-96.png"
-          alt
-        />
+        <img src="../assets/img/icons8-boarding-pass-96.png" />
       </li>
       <p class="text-light mt-2">票券商品管理</p>
       <li
         class="d-flex flex-column align-items-center justify-content-center"
         :class="{'bg-secondary':functionIcon == 'order'}"
-        @click="functionIcon = 'order'"
+        @click="emitShowDetail('order')"
       >
         <img
           src="../assets/img/icons8-purchase-order-90.png"
@@ -33,7 +30,7 @@
       <li
         class="d-flex flex-column align-items-center justify-content-center"
         :class="{'bg-secondary':functionIcon == 'myShop'}"
-        @click="functionIcon = 'myShop'"
+        @click="emitShowDetail('myShop')"
       >
         <img
           src="../assets/img/icons8-shop-100.png"
@@ -44,7 +41,7 @@
       <li
         class="d-flex flex-column align-items-center justify-content-center"
         :class="{'bg-secondary':functionIcon == 'setting'}"
-        @click="functionIcon = 'setting'"
+        @click="emitShowDetail('setting')"
       >
         <img
           src="../assets/img/Path_1050.png"
@@ -55,7 +52,7 @@
       <li
         class="d-flex flex-column align-items-center justify-content-center"
         :class="{'bg-secondary':functionIcon == 'cardPay'}"
-        @click="functionIcon = 'cardPay'"
+        @click="emitShowDetail('cardPay')"
       >
         <img
           src="../assets/img/icons8-buy-with-card-96.png"
@@ -70,12 +67,13 @@
   export default {
     data() {
       return {
-        functionIcon: "product"
+        functionIcon: ""
       };
     },
     methods: {
-      emitShowDetail(e) {
-        console.log(e);
+      emitShowDetail(status) {
+        this.functionIcon = status;
+        this.$emit("emitShowDetail", this.functionIcon);
       }
     }
   };
@@ -94,11 +92,12 @@
     }
   }
   .sideBarWidth {
-    width: 127px;
+    width: 114px;
     ul {
       list-style: none;
       & > li {
-        width: 68px;
+        width: 62px;
+        height: 62px;
         padding: 14% 0;
         border-radius: 10px;
         background: rgba(0, 0, 0, 0.12);
@@ -107,9 +106,12 @@
           background: rgba(0, 0, 0, 0.64);
         }
         img {
-          width: 47%;
+          width: 32px;
           height: auto;
           cursor: pointer;
+        }
+        & + p {
+          font-size: 14px;
         }
       }
     }

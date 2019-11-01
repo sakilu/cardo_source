@@ -1,9 +1,9 @@
 <template>
   <div class="">
-    <span class="rightContentDetailTitle d-block  font-weight-bold">架上票券商品 (0/5)</span>
+    <span class="rightContentDetailTitle d-block  font-weight-bold">架上票券商品 (2/5)</span>
     <router-link
       class="d-flex align-items-center"
-      to="/admin/addticketpage"
+      to="/admin/addtrustticketpage"
     >
       <img
         src="../assets/img/plus.png"
@@ -68,16 +68,16 @@
             </td>
             <td class="text-center">
               <img
-                src="../assets/img/smallshow.png"
+                src="../assets/img/hanlai.png"
                 alt=""
               >
             </td>
             <td class="text-center ticketName">
               <router-link
+                to="/addtrustticketdetail"
                 class="text-decoration-none"
-                to="/addnewticketdetail"
               >
-                田中達也得奇幻世界 微型展 高雄站
+                【漢來海港城餐廳】平日下午茶餐券 ($599)
               </router-link>
             </td>
             <td class="text-center">599</td>
@@ -115,16 +115,16 @@
             </td>
             <td class="text-center">
               <img
-                src="../assets/img/smallshow.png"
+                src="../assets/img//hanlaiorange.png"
                 alt=""
               >
             </td>
             <td class="text-center ticketName">
               <router-link
+                to="/addtrustticketdetail"
                 class="text-decoration-none"
-                to="/addnewticketdetail"
               >
-                田中達也得奇幻世界 微型展 高雄站
+                【漢來海港城餐廳】平日下午茶餐券 ($599)
               </router-link>
             </td>
             <td class="text-center">599</td>
@@ -165,16 +165,16 @@
             </td>
             <td class="text-center">
               <img
-                src="../assets/img/smallshow.png"
+                src="../assets/img/hanlai.png"
                 alt=""
               >
             </td>
             <td class="text-center ticketName">
               <router-link
+                to="/addtrustticketdetail"
                 class="text-decoration-none"
-                to="/addnewticketdetail"
               >
-                田中達也得奇幻世界 微型展 高雄站
+                【漢來海港城餐廳】平日下午茶餐券 ($599)
               </router-link>
             </td>
             <td class="text-center">599</td>
@@ -215,16 +215,16 @@
             </td>
             <td class="text-center">
               <img
-                src="../assets/img/smallshow.png"
+                src="../assets/img/hanlaiorange.png"
                 alt=""
               >
             </td>
             <td class="text-center ticketName">
               <router-link
+                to="/addtrustticketdetail"
                 class="text-decoration-none"
-                to="/addnewticketdetail"
               >
-                田中達也得奇幻世界 微型展 高雄站
+                【漢來海港城餐廳】平日下午茶餐券 ($599)
               </router-link>
             </td>
             <td class="text-center">599</td>
@@ -268,16 +268,16 @@
             </td>
             <td class="text-center">
               <img
-                src="../assets/img/smallshow.png"
+                src="../assets/img/hanlai.png"
                 alt=""
               >
             </td>
             <td class="text-center ticketName">
               <router-link
+                to="/addtrustticketdetail"
                 class="text-decoration-none"
-                to="/addnewticketdetail"
               >
-                田中達也得奇幻世界 微型展 高雄站
+                【漢來海港城餐廳】平日下午茶餐券 ($599)
               </router-link>
             </td>
             <td class="text-center">599</td>
@@ -309,7 +309,6 @@
                   </button>
                   <button class="btn btn-primary imgBtnSize d-flex justify-content-center align-items-center ml-1">
                     <i class="far fa-copy"></i>
-
                   </button>
                 </div>
               </form>
@@ -318,7 +317,6 @@
         </tbody>
       </table>
     </div>
-    <!-- pagination description -->
     <div class="d-flex align-items-center justify-content-between paginationDrop mt-3 mb-3">
       <span class="text-page">View </span>
       <form action="">
@@ -392,7 +390,6 @@
       </nav>
       <span class="text-page">1 - 15 out of 45 Items</span>
     </div>
-
   </div>
 </template>
 

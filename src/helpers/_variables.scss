@@ -90,7 +90,8 @@ $theme-colors: map-merge(
     "log":        #1b79f4,
     "tablehead":    #4b4b4b,
     "tablebtn":   #3343f7,
-    "page":       #8e8e8e
+    "page":       #8e8e8e,
+    "camera":    #9FC4F5
   ),
   $theme-colors
 );
@@ -156,6 +157,7 @@ $sizes: () !default;
 $sizes: map-merge(
   (
     25: 25%,
+    40:40%,
     50: 50%,
     75: 75%,
     100: 100%,
